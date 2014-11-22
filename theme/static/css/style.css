@@ -18,6 +18,7 @@ a:visited { color: #C96570;                               }
 #masthead_image {
 	width: 50%;
 	max-width: 250px;
+	min-width: 150px;
 }
 
 .masthead {
