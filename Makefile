@@ -25,7 +25,7 @@ CLOUDFILES_CONTAINER=my_cloudfiles_container
 
 DROPBOX_DIR=~/Dropbox/Public/
 
-GITHUB_PAGES_BRANCH=master
+GITHUB_PAGES_BRANCH=deploy
 
 DEBUG ?= 0
 ifeq ($(DEBUG), 1)
@@ -105,6 +105,6 @@ cf_upload: publish
 
 github: publish
 	ghp-import -r deploy -m "Generate Pelican site" -b $(GITHUB_PAGES_BRANCH) $(OUTPUTDIR)
-	git push deploy $(GITHUB_PAGES_BRANCH)
+	git push deploy $(GITHUB_PAGES_BRANCH):master
 
 .PHONY: html help clean regenerate serve devserver publish ssh_upload rsync_upload dropbox_upload ftp_upload s3_upload cf_upload github
