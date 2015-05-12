@@ -105,6 +105,10 @@ cf_upload: publish
 
 github: publish
 	ghp-import -r deploy -m "Generate Pelican site" -b $(GITHUB_PAGES_BRANCH) $(OUTPUTDIR)
+	git checkout $(GITHUB_PAGES_BRANCH)
+	echo 'iankronquist.me' > CNAME
+	git add CNAME
+	git commit -m 'Adding CNAME'
 	git push deploy $(GITHUB_PAGES_BRANCH):master
 
 .PHONY: html help clean regenerate serve devserver publish ssh_upload rsync_upload dropbox_upload ftp_upload s3_upload cf_upload github
